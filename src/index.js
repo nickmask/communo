@@ -4,11 +4,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import domready from 'domready'
 
-import KeyBoard from './components/KeyBoard'
+import App from './components/App'
 
 domready(() => {
   ReactDOM.render(
-    <KeyBoard />,
+    <App />,
     document.querySelector('.app')
   )
 })
