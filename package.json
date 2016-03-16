@@ -17,23 +17,9 @@
   "license": "ISC",
   "homepage": "",
   "dependencies": {
-    "browserify": "^13.0.0",
-    "budo": "^8.0.4",
-    "express": "^4.13.4",
-    "nodemon": "^1.8.1",
-    "simple-server": "^1.0.1",
-    "superagent": "^1.7.2",
-    "watchify": "^3.7.0"
-  },
-  "babel": {
-    "presets": [
-      "es2015",
-      "react"
-    ]
-  },
-  "dependencies": {
     "body-parser": "^1.15.0",
     "compression": "^1.6.1",
+    "domready": "^1.0.8",
     "express": "^4.13.4",
     "if-env": "^1.0.0",
     "jquery": "^2.2.1",
@@ -41,7 +27,13 @@
     "react-dom": "^0.14.7",
     "react-router": "^2.0.0",
     "webpack": "^1.12.14"
-},
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
   "devDependencies": {
     "babel-core": "^6.5.1",
     "babel-loader": "^6.2.2",
