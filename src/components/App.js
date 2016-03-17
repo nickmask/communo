@@ -15,7 +15,8 @@ export default React.createClass({
         'g',
         'a',
         'b'
-      ]
+      ],
+      active: '',
     }
   },
 
@@ -37,7 +38,7 @@ export default React.createClass({
   },
 
   componentDidMount: function () {
-      window.addEventListener('keydown', this.handleKeyDown)
+    window.addEventListener('keydown', this.handleKeyDown)
   },
 
   playSound: function (note) {
@@ -48,6 +49,8 @@ export default React.createClass({
   handleKeyDown: function (event) {
     const note = convertKeyCode(event.keyCode)
     this.socket.send('note', { note: note})
+    this.setState({active: note})
+    console.log('Active state', this.state.active)
   },
 
   render: function () {
@@ -58,7 +61,7 @@ export default React.createClass({
         <KeyBoard
           playSound={this.playSound}
           notes={this.state.notes}
-          test="Test"
+          active={this.state.active}
         />
       </div>
     )
