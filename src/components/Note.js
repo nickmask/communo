@@ -30,9 +30,10 @@ module.exports = React.createClass({
     console.log(this.props.note)
     return (
       <div className={noteName}>
-        {this.handleBlackKey()}
+        <BlackKey BlackNotes={this.props.note} />
         <div className="rectangle"></div>
       </div>
     )
   }
 })
+// {this.handleBlackKey()}
