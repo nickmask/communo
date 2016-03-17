@@ -15,11 +15,20 @@ export default React.createClass({
       a: 'black-key black-a',
       b: '',
     }
+    var letters = {
+      c: 'R',
+      d: 'T',
+      f: 'U',
+      g: 'I',
+      a: 'O',
+    }
     var blackNote = blackNoteObj[this.props.BlackNotes]
+    var keyboardLetter = letters[this.props.BlackNotes]
     return (
       <div
         className={blackNote}
       >
+      <p>{keyboardLetter}</p>
       </div>
     )
   }

@@ -14,9 +14,9 @@ domready(() => {
   )
 })
 
-domready(() => {
-  ReactDOM.render(
-    <SocketTest />,
-    document.querySelector('.app')
-  )
-})
+// domready(() => {
+//   ReactDOM.render(
+//     <SocketTest />,
+//     document.querySelector('.app')
+//   )
+// })
