@@ -7,31 +7,23 @@ module.exports = React.createClass({
     event.preventDefault()
   },
 
-  handleBlackKey: function () {
-    var blackKey = {
-      c: true,
-      d: true,
-      e: false,
-      f: true,
-      g: true,
-      a: true,
-      b: false
-    }
-    var keyProps = this.props.notes
-    if (blackKey[keyProps]) {
-      return <BlackKey />
-    }
-  },
-
   render: function () {
-
+    var letters = {
+      c: 'D',
+      d: 'F',
+      e: 'G',
+      f: 'H',
+      g: 'J',
+      a: 'K',
+      b: 'L',
+    }
+    var keyboardLetter = letters[this.props.note]
+    console.log('Letter', keyboardLetter)
     const noteName = 'key ' + this.props.note
-
-    console.log(this.props.note)
     return (
       <div className={noteName}>
         <BlackKey BlackNotes={this.props.note} />
-        <div className="rectangle"></div>
+        <div className="rectangle"><p>{keyboardLetter}</p></div>
       </div>
     )
   }
