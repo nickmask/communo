@@ -39,8 +39,12 @@ primus.on('connection', spark => {
 })
 
 primus.on('disconnection', function (spark) {
-  console.log("DISCONNECT")
-  console.log(spark.id, ' disconnected')
+  sparks.forEach((sp, index) => {
+    if (sp.id === spark.id) {
+      sparks.splice(index, 1)
+      console.log(spark.id, ' disconnected')
+    }
+  })
 })
 
 server.listen(PORT, function() {
