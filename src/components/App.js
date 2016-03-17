@@ -1,10 +1,12 @@
 import React from 'react'
 import KeyBoard from './KeyBoard'
 import { convertKeyCode } from './utils'
+import Timers from 'react-timers'
 
 var PORT = process.env.PORT || 8080
 
 export default React.createClass({
+
   getInitialState: function() {
     return {
       notes: [
@@ -36,7 +38,6 @@ export default React.createClass({
   },
 
   playSound: function (note) {
-    console.log('note', note)
     const audio = new Audio(`./audio/${note.note}.wav`);
     audio.play()
   },
@@ -45,7 +46,6 @@ export default React.createClass({
     const note = convertKeyCode(event.keyCode)
     this.socket.send('note', { note: note})
     this.setState({active: note})
-    console.log('Active state', this.state.active)
   },
 
   render: function () {
