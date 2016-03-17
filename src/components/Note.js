@@ -16,7 +16,7 @@ module.exports = React.createClass({
     const noteName = 'key ' + this.props.note
     return (
       <div className={noteName}>
-        <BlackKey BlackNotes={this.props.note} />
+        <BlackKey BlackNotes={this.props.note} active={this.props.active}/>
         <div className="rectangle">
           <p>{keyboardLetter}</p>
         </div>

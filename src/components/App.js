@@ -13,17 +13,19 @@ export default React.createClass({
         'g',
         'a',
         'b'
-      ]
+      ],
+      active: '',
     }
   },
   componentDidMount: function () {
-      window.addEventListener('keydown', this.handleKeyDown)
+    window.addEventListener('keydown', this.handleKeyDown)
   },
 
   handleKeyDown: function (event) {
     const note = convertKeyCode(event.keyCode)
     const audio = new Audio(`/audio/${note}.wav`)
     audio.play()
+    this.setState({active: note})
   },
 
   render: function () {
@@ -34,7 +36,7 @@ export default React.createClass({
         <KeyBoard
           playSound={this.playSound}
           notes={this.state.notes}
-          test="Test"
+          active={this.state.active}
         />
       </div>
     )
