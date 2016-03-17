@@ -1,15 +1,14 @@
 import React from 'react'
-import Key from './Key'
+import Note from './Note'
 
 export default React.createClass({
-
   render: function () {
-    console.log('this', this.props.test)
+    console.log('this test', this.props)
     return (
       <div>
         <div className="key-board clearfix">
-          {this.props.notes.map(function(notee) {
-            return <Key note=notee />
+          {this.props.notes.map(function(note) {
+            return <Note note={note} />
           }
         )}
         </div>
