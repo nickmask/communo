@@ -9,13 +9,4 @@ describe('Key board', () => {
     const wrapper = shallow(<KeyBoard />)
     expect(wrapper.find('.key-board')).to.have.length(1)
   })
-  // it('should have a main title', () => {
-  //   const wrapper = shallow(<KeyBoard />)
-  //   expect(wrapper.find('#main-title')).to.have.length(1)
-  // })
-  // it('should have a subtitle', () => {
-  //   const wrapper = shallow(<KeyBoard />)
-  //   expect(wrapper.find('#subtitle')).to.have.length(1)
-  // })
-
 })

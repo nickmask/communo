@@ -1,5 +1,5 @@
 import React from 'react'
-import BlackKey from 'BlackKey'
+import BlackKey from './BlackKey'
 
 export default React.createClass({
   handleOnKeyDown(event) {
@@ -8,7 +8,7 @@ export default React.createClass({
   },
   render() {
     return (
-      <div className={this.props.key} onKeyDown={this.handleOnKeyDown}>
+      <div className={this.props.notes} onKeyDown={this.handleOnKeyDown}>
       </div>
     )
   }
