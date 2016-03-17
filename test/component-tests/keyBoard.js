@@ -6,7 +6,7 @@ import KeyBoard from '../../src/components/KeyBoard'
 
 describe('Key board', () => {
   it('should have class of key-board', () => {
-    const wrapper = shallow(<KeyBoard />)
+    const wrapper = shallow(<KeyBoard className='key-board' />)
     expect(wrapper.find('.key-board')).to.have.length(1)
   })
   // it('should have a main title', () => {
