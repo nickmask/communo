@@ -1,17 +1,27 @@
 import React from 'react'
 
 export default React.createClass({
-  handleOnKeyDown(event) {
+  handleOnKeyDown: function (event) {
     event.preventDefault()
-    console.log('keypress')
+  },
+
+  handleBlackKeyNote: function () {
+    var blackNoteObj = {
+      c: 'black-c',
+      d: 'black-d',
+      f: 'black-f',
+      g: 'black-g',
+      a: 'black-a',
+    }
+    return blackNoteObj[this.props.BlackNotes]
   },
   render() {
     return (
-      <div>
-      I'm a black key. yayyayaya
+      <div
+        className={this.handleBlackKeyNote}
+        onKeyDown={this.handleOnKeyDown}
+      >
       </div>
     )
   }
 })
-
-// className={this.props.blackKey} onKeyDown={this.handleOnKeyDown}
