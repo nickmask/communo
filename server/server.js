@@ -5,6 +5,8 @@ var bodyParser = require('body-parser')
 var compression = require('compression')
 var Primus = require('primus.io')
 
+var PORT = process.env.PORT || 8080
+
 var app = express()
 app.use(compression())
 var server = http.createServer(app)
@@ -14,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, '../public')))
 
 var primus = new Primus(server, {
-  port: '8080',
+  port: PORT,
   origins: '*',
   transformer: 'websockets',
   parser: 'JSON'
@@ -41,7 +43,6 @@ primus.on('disconnection', function (spark) {
   console.log(spark.id, ' disconnected')
 })
 
-var PORT = process.env.PORT || 8080
 server.listen(PORT, function() {
   console.log('Production Express server running at localhost:' + PORT)
 })
