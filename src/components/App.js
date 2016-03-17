@@ -1,5 +1,3 @@
-process.env.NODE_ENV = process.env.NODE_ENV || 'development'
-
 import React from 'react'
 import KeyBoard from './KeyBoard'
 import { convertKeyCode } from './utils'
