@@ -1,6 +1,7 @@
 import React from 'react'
 import KeyBoard from './KeyBoard'
 import { convertKeyCode } from './utils'
+import CatMode from './CatMode'
 
 export default React.createClass({
   getInitialState: function() {
@@ -53,7 +54,10 @@ export default React.createClass({
           notes={this.state.notes}
           test="Test"
         />
+        <CatMode />
       </div>
     )
   }
 })
+
+
