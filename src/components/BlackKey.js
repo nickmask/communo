@@ -6,6 +6,22 @@ export default React.createClass({
     this.props.playSound()
   },
 
+  makeDivActiveAgain: function () {
+    var blackLetters = {
+      c: 'R',
+      d: 'T',
+      f: 'U',
+      g: 'I',
+      a: 'O',
+    }
+    if (this.props.active === blackLetters[this.props.BlackNotes]) {
+      return 'active'
+    }
+    else {
+      return ''
+    }
+  },
+
   render() {
     var blackNoteObj = {
       c: 'black-key black-c',
@@ -16,15 +32,16 @@ export default React.createClass({
       a: 'black-key black-a',
       b: '',
     }
-    var letters = {
+    var blackLetters = {
       c: 'R',
       d: 'T',
       f: 'U',
       g: 'I',
       a: 'O',
     }
-    var blackNote = blackNoteObj[this.props.BlackNotes]
-    var keyboardLetter = letters[this.props.BlackNotes]
+
+    var blackNote = blackNoteObj[this.props.BlackNotes] + ' ' + this.makeDivActiveAgain()
+    var keyboardLetter = blackLetters[this.props.BlackNotes]
     return (
       <div
         className={blackNote}

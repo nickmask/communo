@@ -2,6 +2,7 @@ import React from 'react'
 import Note from './Note'
 
 export default React.createClass({
+  
   render: function () {
     console.log(this.props.active)
     return (

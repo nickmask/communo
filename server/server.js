@@ -1,12 +1,17 @@
 var express = require('express')
 var path = require('path')
 var http = require('http')
+var bodyParser = require('body-parser')
 var compression = require('compression')
 var Primus = require('primus.io')
 
 var app = express()
 app.use(compression())
 var server = http.createServer(app)
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.static(path.join(__dirname, '../public')))
 
 var primus = new Primus(server, {
   port: '8080',
@@ -32,19 +37,11 @@ primus.on('connection', spark => {
 })
 
 primus.on('disconnection', function (spark) {
-  console.log(spark, ' disconnected')
+  console.log("DISCONNECT")
+  console.log(spark.id, ' disconnected')
 })
-
-// serve our static stuff like index.css
-app.use(express.static(path.join(__dirname, 'public')))
-
-// send all requests to index.html so browserHistory in React Router works
-app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'))
-})
-
 
 var PORT = process.env.PORT || 8080
-app.listen(PORT, function() {
+server.listen(PORT, function() {
   console.log('Production Express server running at localhost:' + PORT)
 })

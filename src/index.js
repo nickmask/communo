@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom'
 import domready from 'domready'
 
 import App from './components/App'
-import SocketTest from './components/SocketTest'
 
 domready(() => {
   ReactDOM.render(
@@ -13,10 +12,3 @@ domready(() => {
     document.querySelector('.app')
   )
 })
-
-// domready(() => {
-//   ReactDOM.render(
-//     <SocketTest />,
-//     document.querySelector('.app')
-//   )
-// })
