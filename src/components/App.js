@@ -22,11 +22,12 @@ export default React.createClass({
   },
 
   componentWillMount: function () {
-    console.log('environment:', process.env)
+    console.log('environment: ')
+    console.log(process.env)
     console.log('trying to connect primus on port ', PORT)
 
     if (process.env.NODE_ENV === 'production') {
-      this.socket = Primus.connect(`ws://${PORT}`)
+      this.socket = Primus.connect('ws://communo.herokuapp.com/')
     } else {
       this.socket = Primus.connect('ws://localhost:8080')
     }
