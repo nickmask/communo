@@ -1,8 +1,10 @@
+process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+
 import React from 'react'
 import KeyBoard from './KeyBoard'
 import { convertKeyCode } from './utils'
 
-var PORT = process.env.PORT
+var PORT = process.env.PORT || 8080
 
 export default React.createClass({
   getInitialState: function() {
@@ -83,5 +85,3 @@ export default React.createClass({
     )
   }
 })
-
-
