@@ -1,3 +1,5 @@
+process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+
 import React from 'react'
 import KeyBoard from './KeyBoard'
 import { convertKeyCode } from './utils'
@@ -22,12 +24,13 @@ export default React.createClass({
   },
 
   componentWillMount: function () {
-    console.log("trying to connect primus on port ", PORT)
+    console.log('environment:', process.env)
+    console.log('trying to connect primus on port ', PORT)
 
-    if (PORT === 8080) {
-      this.socket = Primus.connect('ws://localhost:8080')
-    } else {
+    if (process.env.NODE_ENV === 'production') {
       this.socket = Primus.connect(`ws://${PORT}`)
+    } else {
+      this.socket = Primus.connect('ws://localhost:8080')
     }
 
     this.socket.on('open', function () {
@@ -82,5 +85,3 @@ export default React.createClass({
     )
   }
 })
-
-
