@@ -19,10 +19,16 @@ h1 {
   font-size: 5vw;
   text-align: center;
   margin-top: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 0px;
 }
 
-p .rectangle  {
+h2 {
+  text-align: center;
+  margin-top: none;
+  padding-top: none;
+}
+
+.rectangle p {
   padding-top: 150px;
 }
 
