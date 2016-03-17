@@ -13,5 +13,3 @@ export default React.createClass({
     )
   }
 })
-
-// className={this.props.blackKey} onKeyDown={this.handleOnKeyDown}
