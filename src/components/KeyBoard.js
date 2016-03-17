@@ -5,8 +5,8 @@ export default React.createClass({
   render () {
     return (
       <div>
-        
-        <div className="key-board clearfix">
+
+        <div className={this.props.class}>
             {/*keys in here*/}
         </div>
       </div>
