@@ -24,9 +24,14 @@ module.exports = React.createClass({
   },
 
   render: function () {
+
+    const noteName = 'key ' + this.props.note
+
+    console.log(this.props.note)
     return (
-      <div className={this.props.notes} >
+      <div className={noteName}>
         {this.handleBlackKey()}
+        <div className="rectangle"></div>
       </div>
     )
   }
