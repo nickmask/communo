@@ -3,7 +3,6 @@ import Note from './Note'
 
 export default React.createClass({
   render: function () {
-    console.log('this test', this.props)
     return (
       <div>
         <div className="key-board clearfix">
