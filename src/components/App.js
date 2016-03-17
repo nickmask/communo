@@ -2,6 +2,8 @@ import React from 'react'
 import KeyBoard from './KeyBoard'
 import { convertKeyCode } from './utils'
 
+var PORT = process.env.PORT || 8080
+
 export default React.createClass({
   getInitialState: function() {
     return {
