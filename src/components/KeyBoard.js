@@ -1,5 +1,5 @@
 import React from 'react'
-// import Key from 'Key.js'
+import Key from './Key.js'
 export default React.createClass({
 
   render () {

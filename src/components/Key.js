@@ -1,5 +1,5 @@
 import React from 'react'
-import BlackKey from 'BlackKey'
+import BlackKey from './BlackKey'
 
 export default React.createClass({
   handleOnKeyDown(event) {

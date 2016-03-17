@@ -2,7 +2,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import domready from 'domready'
+// import domready from 'domready'
 
 import App from './components/App'
 

@@ -7,7 +7,7 @@ export default React.createClass({
   },
   render() {
     return (
-      <div className={this.props.blackKey} onKeyDown={this.handleOnKeyDown}>
+      <div className={this.props.BlackKey} onKeyDown={this.handleOnKeyDown}>
       </div>
     )
   }
