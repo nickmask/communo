@@ -22,8 +22,14 @@ export default React.createClass({
   },
 
   componentWillMount: function () {
-    console.log("trying to connect primus...")
-    this.socket = Primus.connect('ws://localhost:8080')
+    console.log("trying to connect primus on port ", PORT)
+
+    if (PORT === 8080) {
+      this.socket = Primus.connect('ws://localhost:8080')
+    } else {
+      this.socket = Primus.connect(`ws://${PORT}`)
+    }
+
     this.socket.on('open', function () {
       this.socket.send('message', { message: 'communist connected' })
       this.socket.on('note', function (note) {
