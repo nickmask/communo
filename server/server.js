@@ -30,7 +30,6 @@ primus.on('connection', spark => {
   })
 
   spark.on('note', note => {
-    console.log('fired on server')
     sparks.forEach(sp => {
       sp.send('note', note)
     })
@@ -39,7 +38,7 @@ primus.on('connection', spark => {
 
 primus.on('disconnection', function (spark) {
   console.log("DISCONNECT")
-  // console.log(spark, ' disconnected')
+  console.log(spark.id, ' disconnected')
 })
 
 var PORT = process.env.PORT || 8080
