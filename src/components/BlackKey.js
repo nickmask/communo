@@ -3,6 +3,7 @@ import React from 'react'
 export default React.createClass({
   handleOnKeyDown: function (event) {
     event.preventDefault()
+    this.props.playSound()
   },
 
   render() {

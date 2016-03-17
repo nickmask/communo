@@ -9,7 +9,7 @@ describe('<BlackKey />', () => {
     expect(wrapper.find('div')).to.equal(1)
   })
   it('should have className of black-key', () => {
-    const wrapper = mount(<BlackKey class='black-key'/>)
+    const wrapper = mount(<BlackKey class="black-key"/>)
     expect(wrapper.find('div')).to.have.length(1)
   })
 })
