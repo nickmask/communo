@@ -17,6 +17,7 @@ export default React.createClass({
         'b'
       ],
       active: '',
+      mode: 'normal'
     }
   },
 
@@ -39,11 +40,25 @@ export default React.createClass({
 
   componentDidMount: function () {
     window.addEventListener('keydown', this.handleKeyDown)
+    window.cat = function () {
+      this.setState({mode: 'cat'})
+      console.log('cat mode activated')
+    }.bind(this)
+    window.normal = function () {
+      this.setState({mode: 'normal'})
+      console.log('normal mode activated')
+    }.bind(this)
   },
 
   playSound: function (note) {
-    const audio = new Audio(`./audio/${note.note}.wav`);
-    audio.play()
+    console.log('note', note)
+    if (this.state.mode === 'normal') {
+      let audio = new Audio(`./audio/${note.note}.wav`);
+      audio.play()
+    } else if (this.state.mode === 'cat') {
+      let audio = new Audio(`./audio/cat_audio/${note.note}.wav`)
+      audio.play()
+    }
   },
 
   handleKeyDown: function (event) {
@@ -67,3 +82,5 @@ export default React.createClass({
     )
   }
 })
+
+
