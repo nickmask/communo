@@ -1,10 +1,12 @@
 var express = require('express')
 var path = require('path')
+var http = require('http')
 var compression = require('compression')
 var Primus = require('primus.io')
 
 var app = express()
 app.use(compression())
+var server = http.createServer(app)
 
 var primus = new Primus(server, {
   port: '8080',

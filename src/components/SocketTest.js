@@ -15,7 +15,7 @@ export default React.createClass({
   },
 
   playSound: function (note) {
-    const audio = new Audio(`../../public/audio/${note}.wav`);
+    const audio = new Audio(`./audio/${note}.wav`);
     audio.play()
   },
 
