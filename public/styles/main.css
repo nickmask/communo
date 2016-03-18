@@ -27,7 +27,7 @@ body.gameofcat {
 }
 body.trump {
   color: black;
-  background: url("/img/trump.jpg");
+  background: url("/img/donald.jpg");
 }
 
 .trump #opaque-square {
