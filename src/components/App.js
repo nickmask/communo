@@ -22,6 +22,9 @@ export default React.createClass({
   },
 
   componentWillMount: function () {
+    var host = location.origin.replace(/^http/, 'ws')
+    host = host.replace(/^https/, 'ws')
+    console.log("HOST ", host)
     if (process.env.NODE_ENV === 'production') {
       this.socket = Primus.connect('ws://communo.herokuapp.com/')
     } else {
