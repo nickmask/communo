@@ -34,7 +34,6 @@ module.exports = React.createClass({
     var activeKey = 'rectangle ' + this.makeDivActive()
     var keyboardLetter = letters[this.props.note]
     const noteName = 'key ' + this.props.note
-    console.log('NOTE NAME', noteName)
     return (
       <div className={noteName}>
         <BlackKey

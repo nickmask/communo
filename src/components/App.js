@@ -6,6 +6,7 @@ import $ from 'jquery'
 var PORT = process.env.PORT || 8080
 
 export default React.createClass({
+
   getInitialState: function() {
     return {
       notes: [
@@ -23,12 +24,10 @@ export default React.createClass({
   },
 
   componentWillMount: function () {
-    console.log("trying to connect primus on port ", PORT)
-
-    if (PORT === 8080) {
-      this.socket = Primus.connect('ws://localhost:8080')
+    if (process.env.NODE_ENV === 'production') {
+      this.socket = Primus.connect('ws://communo.herokuapp.com/')
     } else {
-      this.socket = Primus.connect(`ws://${PORT}`)
+      this.socket = Primus.connect('ws://localhost:8080')
     }
 
     this.socket.on('open', function () {
@@ -75,7 +74,6 @@ export default React.createClass({
     const note = convertKeyCode(event.keyCode)
     this.socket.send('note', { note: note})
     this.setState({active: note})
-    console.log('Active state', this.state.active)
   },
 
   render: function () {
