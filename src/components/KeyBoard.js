@@ -8,7 +8,7 @@ export default React.createClass({
       <div>
         <div className="key-board clearfix">
           {this.props.notes.map(function(note) {
-            return <Note note={note} active={this.props.active}/>
+            return <Note sendNote={this.props.sendNote} note={note} active={this.props.active}/>
           }.bind(this)
         )}
         </div>

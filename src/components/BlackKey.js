@@ -46,7 +46,7 @@ export default React.createClass({
       <div
         className={blackNote}
       >
-      <p>{keyboardLetter}</p>
+      <p onClick={()=> this.props.sendNote(blackLetters[this.props.BlackNotes])}>{keyboardLetter}</p>
       </div>
     )
   }
