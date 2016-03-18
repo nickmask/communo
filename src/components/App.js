@@ -24,12 +24,10 @@ export default React.createClass({
   },
 
   componentWillMount: function () {
-    console.log("trying to connect primus on port ", PORT)
-
-    if (PORT === 8080) {
-      this.socket = Primus.connect('ws://localhost:8080')
+    if (process.env.NODE_ENV === 'production') {
+      this.socket = Primus.connect('ws://communo.herokuapp.com/')
     } else {
-      this.socket = Primus.connect(`ws://${PORT}`)
+      this.socket = Primus.connect('ws://localhost:8080')
     }
 
     this.socket.on('open', function () {
@@ -53,9 +51,6 @@ export default React.createClass({
   },
 
   playSound: function (note) {
-    const audio = new Audio(`./audio/${note.note}.wav`);
-    audio.play()
-
     console.log('note', note)
     if (this.state.mode === 'normal') {
       let audio = new Audio(`./audio/${note.note}.wav`);
