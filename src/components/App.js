@@ -19,19 +19,27 @@ export default React.createClass({
         'b'
       ],
       active: '',
-      mode: 'normal'
+      mode: 'normal',
+      communists: 0
     }
   },
 
   componentWillMount: function () {
+    var host = location.origin.replace(/^http/, 'ws')
+    host = host.replace(/^https/, 'ws')
     if (process.env.NODE_ENV === 'production') {
-      this.socket = Primus.connect('ws://communo.herokuapp.com/')
+      this.socket = Primus.connect(host)
     } else {
-      this.socket = Primus.connect('ws://localhost:8080')
+      this.socket = Primus.connect(host)
     }
 
     this.socket.on('open', function () {
       this.socket.send('message', { message: 'communist connected' })
+
+      this.socket.on('update', function (update) {
+        this.updateCommunists(update)
+      }.bind(this))
+
       this.socket.on('note', function (note) {
         this.playSound(note)
       }.bind(this))
@@ -42,15 +50,19 @@ export default React.createClass({
     window.addEventListener('keydown', this.handleKeyDown)
     window.cat = function () {
       this.setState({mode: 'cat'})
+      $('body').removeClass()
       $('body').addClass('cat')
       console.log('cat mode activated')
     }.bind(this)
     window.normal = function () {
       this.setState({mode: 'normal'})
+      $('body').removeClass()
+      $('body').addClass('normal')
       console.log('normal mode activated')
     }.bind(this)
     window.gameofcat = function() {
       this.setState({mode: 'gameofcat'})
+      $('body').removeClass()
       $('body').addClass('gameofcat')
       console.log('gameofcat mode activated')
     }.bind(this)
@@ -62,7 +74,6 @@ export default React.createClass({
   },
 
   playSound: function (note) {
-    console.log('note', note)
     if (this.state.mode === 'normal') {
       let audio = new Audio(`./audio/${note.note}.wav`);
       audio.play()
@@ -73,9 +84,13 @@ export default React.createClass({
       let audio = new Audio(`./audio/game_of_cat/game_of_cat.wav`)
       audio.play()
     } else if (this.state.mode === 'trump') {
-      let audio = new Audio(`./audio/game_of_cat/game_of_cat.wav`)
+      let audio = new Audio(`./audio/trump/${note.note}.wav`)
       audio.play()
     }
+  },
+
+  updateCommunists: function (communistCount) {
+    this.setState({communists: communistCount})
   },
 
   handleKeyDown: function (event) {
@@ -87,8 +102,11 @@ export default React.createClass({
   render: function () {
     return (
       <div>
-        <h1 id="main-title">Communo</h1>
-        <h2 id="subtitle">Piano for Communists</h2>
+
+        <div id="opaque-square">
+          <h1 id="main-title">Communo</h1>
+          <h2 id="subtitle">Communists collaborating: {this.state.communists}</h2>
+        </div>
         <KeyBoard
           playSound={this.playSound}
           notes={this.state.notes}

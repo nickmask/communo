@@ -29,6 +29,10 @@ primus.on('connection', spark => {
   sparks.push(spark)
   console.log('communist connection established')
 
+  sparks.forEach(sp => {
+    sp.send('update', sparks.length)
+  })
+
   spark.on('message', msg => {
     console.log(msg)
   })
@@ -46,6 +50,8 @@ primus.on('disconnection', function (spark) {
       sparks.splice(index, 1)
       console.log(spark.id, ' disconnected')
     }
+
+    sp.send('update', sparks.length)
   })
 })
 
