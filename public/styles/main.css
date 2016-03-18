@@ -14,6 +14,10 @@ body {
   background-color: green;
 }
 
+body.cat {
+  background: url('/img/cat-pattern.jpg')
+}
+
 h1 {
   font-weight: bolder;
   font-size: 5vw;
