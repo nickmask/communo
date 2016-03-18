@@ -14,6 +14,10 @@ body {
   background-color: green;
 }
 
+body.cat {
+  background: url('/img/cat-pattern.jpg')
+}
+
 h1 {
   font-weight: bolder;
   font-size: 5vw;
@@ -66,14 +70,21 @@ h2 {
   border-radius: 5px;
   position: absolute;
   left: 47px;
-}
 
+  /*-webkit-transition: all 0s ease-in 1.0s;
+  -moz-transition: all 0s ease-in-out 1.0s;
+  -o-transition: all 0s ease-in-out 1.0s;
+  transition: all 0s ease-in-out 1.0s;*/
+}
 .black-key p {
   color: white;
   padding-top: 70px;
   padding-left: 12px;
 }
 
+.black-key.active {
+  background: rgb(51, 56, 54);
+}
 .rectangle {
   width: 50px;
   height: 200px;
@@ -90,9 +101,9 @@ h2 {
   background: #d2d1d2;
 }
 
-.black-key.active {
-  background: rgb(51, 56, 54);
-}
+
+
+
 
 .a {
   z-index: 5;
