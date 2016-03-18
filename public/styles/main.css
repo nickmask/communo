@@ -15,10 +15,26 @@ body {
 }
 
 body.gameofcat {
+  color: black;
   background: url("/img/gameofcat.jpg");
 }
 
+.gameofcat #opaque-square {
+  background-color: white;
+  opacity: 0.6;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.cat #opaque-square {
+  background-color: white;
+  opacity: 0.6;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
 body.cat {
+  color: black;
   background: url('/img/cat-pattern.png');
 }
 

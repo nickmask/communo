@@ -96,8 +96,11 @@ export default React.createClass({
   render: function () {
     return (
       <div>
-        <h1 id="main-title">Communo</h1>
-        <h2 id="subtitle">Communists collaborating: {this.state.communists}</h2>
+
+        <div id="opaque-square">
+          <h1 id="main-title">Communo</h1>
+          <h2 id="subtitle">Communists collaborating: {this.state.communists}</h2>
+        </div>
         <KeyBoard
           playSound={this.playSound}
           notes={this.state.notes}
