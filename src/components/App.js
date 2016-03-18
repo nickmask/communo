@@ -1,6 +1,7 @@
 import React from 'react'
 import KeyBoard from './KeyBoard'
 import { convertKeyCode } from './utils'
+import $ from 'jquery'
 
 var PORT = process.env.PORT || 8080
 
@@ -42,11 +43,17 @@ export default React.createClass({
     window.addEventListener('keydown', this.handleKeyDown)
     window.cat = function () {
       this.setState({mode: 'cat'})
+      $('body').addClass('cat')
       console.log('cat mode activated')
     }.bind(this)
     window.normal = function () {
       this.setState({mode: 'normal'})
       console.log('normal mode activated')
+    }.bind(this)
+    window.gameofcat = function() {
+      this.setState({mode: 'gameofcat'})
+      $('body').addClass('gameofcat')
+      console.log('gameofcat mode activated')
     }.bind(this)
   },
 
@@ -57,6 +64,9 @@ export default React.createClass({
       audio.play()
     } else if (this.state.mode === 'cat') {
       let audio = new Audio(`./audio/cat_audio/${note.note}.wav`)
+      audio.play()
+    } else if (this.state.mode === 'gameofcat') {
+      let audio = new Audio(`./audio/game_of_cat/game_of_cat.wav`)
       audio.play()
     }
   },
@@ -82,5 +92,3 @@ export default React.createClass({
     )
   }
 })
-
-
