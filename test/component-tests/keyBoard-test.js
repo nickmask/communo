@@ -4,7 +4,7 @@ import React from 'react'
 
 import KeyBoard from '../../src/components/KeyBoard'
 
-describe('Key board', () => {
+describe('Keyboard', () => {
   const props = {
     notes: [
       'c',
@@ -16,10 +16,12 @@ describe('Key board', () => {
       'b'
     ]
   }
-  const wrapper = shallow(<KeyBoard notes={props.notes}/>)
-
+  const wrapper = mount(<KeyBoard notes={props.notes}/>)
   it('should have class of key-board', () => {
-
     expect(wrapper.find('.key-board')).to.have.length(1)
+  })
+
+  it("should have 23 'note' divs", () => {
+    expect(wrapper.find('div')).to.have.length(23)
   })
 })

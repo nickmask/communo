@@ -5,11 +5,11 @@ import React from 'react'
 import App from '../../src/components/App'
 
 describe('App', () => {
-  it('should have a main title', () => {
+  xit('should have a main title', () => {
     const wrapper = shallow(<App />)
     expect(wrapper.find('#main-title')).to.have.length(1)
   })
-  it('should have a subtitle', () => {
+  xit('should have a subtitle', () => {
     const wrapper = shallow(<App />)
     expect(wrapper.find('#subtitle')).to.have.length(1)
   })

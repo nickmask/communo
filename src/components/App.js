@@ -27,7 +27,6 @@ export default React.createClass({
   componentWillMount: function () {
     var host = location.origin.replace(/^http/, 'ws')
     host = host.replace(/^https/, 'ws')
-    console.log("HOST ", host)
     if (process.env.NODE_ENV === 'production') {
       this.socket = Primus.connect(host)
     } else {
@@ -70,7 +69,6 @@ export default React.createClass({
   },
 
   playSound: function (note) {
-    console.log('note', note)
     if (this.state.mode === 'normal') {
       let audio = new Audio(`./audio/${note.note}.wav`);
       audio.play()
@@ -101,11 +99,13 @@ export default React.createClass({
   render: function () {
     return (
       <div>
-        <h1 id="main-title">Communo</h1>
-        <h2 id="subtitle">Communists collaborating: {this.state.communists}</h2>
+        <div id="opaque-square">
+          <h1 id="main-title">Communo</h1>
+          <h2 id="subtitle">Communists collaborating: {this.state.communists}</h2>
+        </div>
         <KeyBoard
-          playSound={this.playSound}
           sendNote={this.sendNote}
+          playSound={this.handleKeyDown}
           notes={this.state.notes}
           active={this.state.active}
         />
