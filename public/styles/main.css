@@ -14,13 +14,18 @@ body {
   background-color: green;
 }
 
-body .gameofcat {
-  background: url("https://i.ytimg.com/vi/tl4z7tdsDN8/maxresdefault.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+body.gameofcat {
+  background: url("/img/gameofcat.jpg");
+}
 
 body.cat {
-  background: url('/img/cat-pattern.png')
+  background: url('/img/cat-pattern.png');
+}
+
+body.normal {
+  background: none;
+  background: green;
+  background-color: green;
 }
 
 h1 {
@@ -48,7 +53,7 @@ h2 {
      content: " ";
      clear: both;
      height: 0;
-     }
+}
 
 .clearfix { display: inline-block; }
 /* start commented backslash hack \*/
@@ -99,16 +104,9 @@ h2 {
   text-align: center;
 }
 
-.rectangle:hover {
-  background: #d2d1d2;
-}
 .rectangle.active {
   background: #d2d1d2;
 }
-
-
-
-
 
 .a {
   z-index: 5;

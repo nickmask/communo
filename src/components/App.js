@@ -47,6 +47,7 @@ export default React.createClass({
     }.bind(this)
     window.normal = function () {
       this.setState({mode: 'normal'})
+      $('body').addClass('normal')
       console.log('normal mode activated')
     }.bind(this)
     window.gameofcat = function() {
