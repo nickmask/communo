@@ -19,7 +19,8 @@ export default React.createClass({
         'b'
       ],
       active: '',
-      mode: 'normal'
+      mode: 'normal',
+      communists: 0
     }
   },
 
@@ -35,6 +36,11 @@ export default React.createClass({
 
     this.socket.on('open', function () {
       this.socket.send('message', { message: 'communist connected' })
+
+      this.socket.on('update', function (update) {
+        this.updateCommunists(update)
+      }.bind(this))
+
       this.socket.on('note', function (note) {
         this.playSound(note)
       }.bind(this))
@@ -77,6 +83,10 @@ export default React.createClass({
     }
   },
 
+  updateCommunists: function (communistCount) {
+    this.setState({communists: communistCount})
+  },
+
   handleKeyDown: function (event) {
     const note = convertKeyCode(event.keyCode)
     this.socket.send('note', { note: note})
@@ -87,7 +97,7 @@ export default React.createClass({
     return (
       <div>
         <h1 id="main-title">Communo</h1>
-        <h2 id="subtitle">Piano for Communists</h2>
+        <h2 id="subtitle">Communists collaborating: {this.state.communists}</h2>
         <KeyBoard
           playSound={this.playSound}
           notes={this.state.notes}
