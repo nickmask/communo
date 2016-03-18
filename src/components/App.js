@@ -100,7 +100,7 @@ export default React.createClass({
           <h2 id="subtitle">Communists collaborating: {this.state.communists}</h2>
         </div>
         <KeyBoard
-          playSound={this.playSound}
+          playSound={this.handleKeyDown}
           notes={this.state.notes}
           active={this.state.active}
         />
