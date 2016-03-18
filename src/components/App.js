@@ -93,6 +93,11 @@ export default React.createClass({
     this.setState({active: note})
   },
 
+  sendNote: function (note) {
+    this.socket.send('note', { note: note})
+    this.setState({active: note})
+  },
+
   render: function () {
     return (
       <div>
@@ -100,6 +105,7 @@ export default React.createClass({
         <h2 id="subtitle">Communists collaborating: {this.state.communists}</h2>
         <KeyBoard
           playSound={this.playSound}
+          sendNote={this.sendNote}
           notes={this.state.notes}
           active={this.state.active}
         />
