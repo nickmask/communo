@@ -68,6 +68,7 @@ export default React.createClass({
     }.bind(this)
     window.trump = function() {
       this.setState({mode: 'trump'})
+      $('body').removeClass()
       $('body').addClass('trump')
       console.log('trump mode activated')
     }.bind(this)
