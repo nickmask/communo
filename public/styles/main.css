@@ -60,6 +60,7 @@ h2 {
 
 .rectangle p {
   padding-top: 150px;
+  padding-bottom: 25px;
 }
 
 .clearfix:after {
@@ -106,6 +107,7 @@ h2 {
   color: white;
   padding-top: 70px;
   padding-left: 12px;
+  padding-bottom: 17px;
 }
 
 .black-key.active {

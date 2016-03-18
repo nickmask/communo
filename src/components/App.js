@@ -91,15 +91,20 @@ export default React.createClass({
     this.setState({active: note})
   },
 
+  sendNote: function (note) {
+    this.socket.send('note', { note: note})
+    this.setState({active: note})
+  },
+
   render: function () {
     return (
       <div>
-
         <div id="opaque-square">
           <h1 id="main-title">Communo</h1>
           <h2 id="subtitle">Communists collaborating: {this.state.communists}</h2>
         </div>
         <KeyBoard
+          sendNote={this.sendNote}
           playSound={this.handleKeyDown}
           notes={this.state.notes}
           active={this.state.active}

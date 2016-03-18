@@ -37,11 +37,12 @@ module.exports = React.createClass({
     return (
       <div className={noteName}>
         <BlackKey
+        sendNote={this.props.sendNote}
         BlackNotes={this.props.note}
         active={this.props.active}
         />
         <div className={activeKey}>
-          <p>{keyboardLetter}</p>
+          <p onClick={()=> this.props.sendNote(letters[this.props.note])}>{keyboardLetter}</p>
         </div>
       </div>
     )
