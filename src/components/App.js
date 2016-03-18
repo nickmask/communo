@@ -54,6 +54,11 @@ export default React.createClass({
       $('body').addClass('gameofcat')
       console.log('gameofcat mode activated')
     }.bind(this)
+    window.trump = function() {
+      this.setState({mode: 'trump'})
+      $('body').addClass('trump')
+      console.log('trump mode activated')
+    }.bind(this)
   },
 
   playSound: function (note) {
@@ -65,6 +70,9 @@ export default React.createClass({
       let audio = new Audio(`./audio/cat_audio/${note.note}.wav`)
       audio.play()
     } else if (this.state.mode === 'gameofcat') {
+      let audio = new Audio(`./audio/game_of_cat/game_of_cat.wav`)
+      audio.play()
+    } else if (this.state.mode === 'trump') {
       let audio = new Audio(`./audio/game_of_cat/game_of_cat.wav`)
       audio.play()
     }
