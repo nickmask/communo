@@ -42,16 +42,19 @@ export default React.createClass({
     window.addEventListener('keydown', this.handleKeyDown)
     window.cat = function () {
       this.setState({mode: 'cat'})
+      $('body').removeClass()
       $('body').addClass('cat')
       console.log('cat mode activated')
     }.bind(this)
     window.normal = function () {
       this.setState({mode: 'normal'})
+      $('body').removeClass()
       $('body').addClass('normal')
       console.log('normal mode activated')
     }.bind(this)
     window.gameofcat = function() {
       this.setState({mode: 'gameofcat'})
+      $('body').removeClass()
       $('body').addClass('gameofcat')
       console.log('gameofcat mode activated')
     }.bind(this)
