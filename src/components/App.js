@@ -22,10 +22,6 @@ export default React.createClass({
   },
 
   componentWillMount: function () {
-    console.log('environment: ')
-    console.log(process.env)
-    console.log('trying to connect primus on port ', PORT)
-
     if (process.env.NODE_ENV === 'production') {
       this.socket = Primus.connect('ws://communo.herokuapp.com/')
     } else {
@@ -53,7 +49,6 @@ export default React.createClass({
   },
 
   playSound: function (note) {
-    console.log('note', note)
     if (this.state.mode === 'normal') {
       let audio = new Audio(`./audio/${note.note}.wav`);
       audio.play()
@@ -67,7 +62,7 @@ export default React.createClass({
     const note = convertKeyCode(event.keyCode)
     this.socket.send('note', { note: note})
     this.setState({active: note})
-    console.log('Active state', this.state.active)
+    // console.log('Active state', this.state.active)
   },
 
   render: function () {
