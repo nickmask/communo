@@ -25,6 +25,17 @@ body.gameofcat {
   margin-left: 25%;
   margin-right: 25%;
 }
+body.trump {
+  color: black;
+  background: url("/img/trump.jpg");
+}
+
+.trump #opaque-square {
+  background-color: white;
+  opacity: 0.6;
+  margin-left: 25%;
+  margin-right: 25%;
+}
 
 .cat #opaque-square {
   background-color: white;
